@@ -29,14 +29,12 @@ export class CustomGatewayAdapter implements PaymentGatwayAdapter {
     this.settings = settings
   }
   async authorize(request: GatewayAuthorizationRequest): Promise<GatewayAuthorizeResponse> {
-    //   this.logger.info('info message');
-    //   example response
-    //   return {
-    //     authCode: "CAPTURED",
-    //     responseCode: "food",
-    //     responseText : "Captured via CustomGatewayAdapter"
-    //   };
-    throw new Error('Method not implemented.')
+    return {
+      authCode: 'NOTCAPTURED',
+      responseCode: 'food',
+      responseText: ' Not Captured via CustomGatewayAdapter',
+      isDeclined: true,
+    }
   }
   async authorizeWithToken(
     request: GatewayAuthorizationRequest
@@ -44,7 +42,12 @@ export class CustomGatewayAdapter implements PaymentGatwayAdapter {
     throw new Error('Method not implemented.')
   }
   async capture(request: CaptureRequest): Promise<GatewayCaptureResponse> {
-    throw new Error('Method not implemented.')
+    return {
+      authCode: 'NOTCAPTURED',
+      responseCode: 'food',
+      responseText: ' Not Captured via CustomGatewayAdapter',
+      isDeclined: true,
+    }
   }
   async credit(request: CreditRequest): Promise<GatewayCreditResponse> {
     throw new Error('Method not implemented.')
@@ -53,7 +56,12 @@ export class CustomGatewayAdapter implements PaymentGatwayAdapter {
     throw new Error('Method not implemented.')
   }
   async authorizeAndCapture(request: GatewayAuthorizationRequest): Promise<GatewayDebitResponse> {
-    throw new Error('Method not implemented.')
+    return {
+      authCode: 'NOTCAPTURED',
+      responseCode: 'food',
+      responseText: ' Not Captured via CustomGatewayAdapter',
+      isDeclined: true,
+    }
   }
   async authorizeAndCaptureWithToken(
     request: GatewayAuthorizationRequest
